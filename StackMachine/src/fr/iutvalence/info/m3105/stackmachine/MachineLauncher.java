@@ -49,7 +49,7 @@ public class MachineLauncher
 				};
 		Program program = new Program(instructions);
 		
-		Memory programMemory= null;
+		Memory programMemory = null;
 		Stack expStack = null;
 		Stack callStack = null;
 
