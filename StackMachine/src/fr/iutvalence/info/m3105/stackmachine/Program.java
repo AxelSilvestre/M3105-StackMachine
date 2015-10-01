@@ -7,7 +7,7 @@ public class Program {
 	
 	public Program(Instruction[] instructions) {
 		this.instructions = instructions;
-		// TODO InstructionCount
+		instructionCount = instructions.length;
 	}
 
 	public int getInstructionCount() {

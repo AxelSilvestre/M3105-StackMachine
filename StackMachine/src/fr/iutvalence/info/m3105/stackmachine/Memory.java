@@ -16,8 +16,12 @@ public class Memory {
 		return startAdress;
 	}
 	
-	public void write(int currentAddress, int opCode) {
-		data[endAdress-currentAddress] = opCode;
+	public void write(int currentAddress, int opCode) throws AddressOutOfBoundsException {
+		data[currentAddress] = opCode;
+	}
+	
+	public int read(int adress) throws AddressOutOfBoundsException{
+		return data[adress];
 	}
 
 }
