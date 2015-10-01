@@ -4,9 +4,11 @@ public class Stack{
 	
 	private final int values[];
 	private int pos;
+	private final int size;
 		
 	public Stack(int size) throws InvalidParametersException{
 		super();
+		this.size = size;
 		values = new int[size];
 		pos = -1;
 	}
@@ -36,7 +38,10 @@ public class Stack{
 	}
 	
 	public void clear() {
-		pos = 0;
+		for(int i=0;i<size;i++){
+			values[i] = 0;
+		}
+		pos = -1;
 	}
 	
 	public void dup() throws StackOverflowException{
