@@ -60,11 +60,14 @@ public class MachineLauncher
 		
 		Instruction[] instructions = new Instruction[]{
 				
-				new Instruction(CPU.PUSH, new int[]{0x1}),
-				new Instruction(CPU.PUSH, new int[]{0x6}),
-				new Instruction(CPU.ADD, null),
-				new Instruction(CPU.OUT, null),
-				new Instruction(CPU.HALT, null)
+				new Instruction(CPU32bits.PUSH, new int[]{0x1}),
+				new Instruction(CPU32bits.PUSH, new int[]{0x6}),
+				new Instruction(CPU32bits.ADD, null),
+				new Instruction(CPU32bits.OUT, null),
+				new Instruction(CPU32bits.OUT, null),
+				new Instruction(CPU32bits.HALT, null)
+				
+				//TODO Instructions pour processeurs autres que 32 bits
 				
 		};
 		
@@ -77,8 +80,8 @@ public class MachineLauncher
 		try
 		{
 			programMemory = new Memory(0x00000000, 0x00000020);
-			expStack = new Stack(16);
-			callStack = new Stack(16);
+			expStack = new Stack8bits(16);
+			callStack = new Stack8bits(16);
 		}
 		catch (InvalidParametersException e)
 		{
@@ -86,7 +89,7 @@ public class MachineLauncher
 		}
 		
 		IO ioSystem = new IO(System.in, System.out, System.err);
-		CPU cpu = new CPU();		
+		CPU cpu = new CPU32bits();		
 		Machine machine = new Machine(cpu, programMemory, expStack, callStack, ioSystem );
 		try
 		{

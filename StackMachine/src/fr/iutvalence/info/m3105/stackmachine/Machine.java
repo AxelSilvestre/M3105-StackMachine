@@ -4,12 +4,18 @@ public class Machine
 {
 	private CPU cpu;
 	private Memory programMemory;
+	protected Stack expStack;
+	protected Stack callStack;
+	protected IO ioSystem;
 
 	public Machine(CPU cpu, Memory programMemory, Stack expStack, Stack callStack, IO ioSystem)
 	{
 		super();
 		this.cpu = cpu;
 		this.programMemory = programMemory;
+		this.expStack = expStack;
+		this.callStack = callStack;
+		this.ioSystem = ioSystem;
 		this.cpu.wireToProgramMemory(programMemory);
 		this.cpu.wireToExpStack(expStack);
 		this.cpu.wireToCallStack(callStack);
