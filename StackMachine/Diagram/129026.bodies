@@ -1,0 +1,32 @@
+class Machine
+!!!129922.java!!!	Machine(inout cpu : CPU, inout programMemory : Memory, inout expStack : Stack, inout callStack : Stack, inout ioSystem : IO)
+		super();
+		this.cpu = cpu;
+		this.programMemory = programMemory;
+		this.cpu.wireToProgramMemory(programMemory);
+		this.cpu.wireToExpStack(expStack);
+		this.cpu.wireToCallStack(callStack);
+		this.cpu.wireToIoSubsystem(ioSystem);
+!!!130050.java!!!	loadProgram(inout program : Program) : void
+		int currentAddress = this.programMemory.getStartAddress();
+
+		for (int instructionNumber = 0; instructionNumber < program.getInstructionCount(); instructionNumber++)
+		{
+			Instruction instruction = program.getInstructionAt(instructionNumber);
+			this.programMemory.write(currentAddress, instruction.getOpCode());
+			currentAddress++;
+			int[] instructionParams = instruction.getParams();
+			if (instructionParams != null)
+			{
+				for (int instructionParam : instructionParams)
+				{
+					this.programMemory.write(currentAddress, instructionParam);
+					currentAddress++;
+				}
+			}
+		}
+!!!130178.java!!!	executeProgram(in address : int) : void
+		cpu.clearStacks();
+		cpu.setPC(address);
+		cpu.run();
+		System.out.println("(end of program execution)");

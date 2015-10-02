@@ -1,0 +1,28 @@
+class Stack
+!!!131330.java!!!	Stack(in size : int)
+		super();
+		this.size = size;
+		values = new int[size];
+		pos = -1;
+!!!131458.java!!!	push(in value : int) : void
+		pos++;
+		values[pos] = value;		
+!!!131586.java!!!	pop() : int
+		int ret = values[pos];
+		values[pos] = 0;
+		pos--;		
+		return ret;
+!!!131714.java!!!	isEmpty() : boolean
+		return pos != -1 ? false : true;
+!!!131842.java!!!	getNbValues() : int
+		return pos;
+!!!131970.java!!!	peek() : int
+		return values[pos];
+!!!132098.java!!!	clear() : void
+		for(int i=0;i<size;i++){
+			values[i] = 0;
+		}
+		pos = -1;
+!!!132226.java!!!	dup() : void
+		values[pos+1] = values[pos];
+		pos++;

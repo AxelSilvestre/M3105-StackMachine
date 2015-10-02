@@ -1,0 +1,8 @@
+class Instruction
+!!!128898.java!!!	Instruction(in codeOp : int, inout params : int)
+		this.codeOp = codeOp;
+		this.params = params;		
+!!!129026.java!!!	getOpCode() : int
+		return codeOp;
+!!!129154.java!!!	getParams() : int
+		return params;

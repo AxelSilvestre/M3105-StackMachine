@@ -1,0 +1,11 @@
+class Memory
+!!!130434.java!!!	Memory(in startAdress : int, in endAdress : int)
+		this.startAdress = startAdress;
+		this.endAdress = endAdress;
+		this.data = new int[endAdress-startAdress];
+!!!130562.java!!!	getStartAddress() : int
+		return startAdress;
+!!!130690.java!!!	write(in currentAddress : int, in opCode : int) : void
+		data[currentAddress] = opCode;
+!!!130818.java!!!	read(in adress : int) : int
+		return data[adress];
