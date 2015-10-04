@@ -5,7 +5,7 @@ public abstract class AbstractCPU<WordSize> implements CPU<WordSize>{
 	protected Memory programMemory;
 	protected Stack expStack;
 	protected Stack callStack;
-	protected IO ioSystem;
+	protected InputOutput ioSystem;
 	protected WordSize programCounter;
 	
 	public abstract void run();
@@ -25,7 +25,7 @@ public abstract class AbstractCPU<WordSize> implements CPU<WordSize>{
 		
 	}
 
-	public final void wireToIoSubsystem(IO ioSystem) {
+	public final void wireToIoSubsystem(InputOutput ioSystem) {
 		this.ioSystem = ioSystem;
 		
 	}

@@ -10,9 +10,10 @@ public interface CPU<WordSize> {
 
 	public abstract void wireToCallStack(Stack callStack);
 
-	public abstract void wireToIoSubsystem(IO ioSystem);
+	public abstract void wireToIoSubsystem(InputOutput ioSystem);
 
 	public abstract void clearStacks();
 
 	public abstract void setPC(WordSize address);
+	
 }

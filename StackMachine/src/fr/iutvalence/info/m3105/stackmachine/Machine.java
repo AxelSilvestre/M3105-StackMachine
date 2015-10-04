@@ -6,9 +6,9 @@ public class Machine
 	private Memory programMemory;
 	protected Stack expStack;
 	protected Stack callStack;
-	protected IO ioSystem;
+	protected InputOutput ioSystem;
 
-	public Machine(CPU cpu, Memory programMemory, Stack expStack, Stack callStack, IO ioSystem)
+	public Machine(CPU cpu, Memory programMemory, Stack expStack, Stack callStack, InputOutput ioSystem)
 	{
 		super();
 		this.cpu = cpu;
